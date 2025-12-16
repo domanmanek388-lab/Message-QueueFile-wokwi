@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "author": "VINSENTIUS RIVALDO MANEK",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 167.15,
+      "left": -76.8,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": -86.4,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 82.8,
+      "left": -178.6,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 150, "left": -178.6, "attrs": { "color": "red" } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -78.1, "left": -182.6, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": -2.2,
+      "left": 153.6,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pot1:SIG", "esp:32", "green", [ "v0" ] ],
+    [ "pot1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led1:A", "r2:1", "green", [ "v0" ] ],
+    [ "r2:2", "esp:12", "green", [ "v0" ] ],
+    [ "r1:2", "esp:13", "green", [ "v0" ] ],
+    [ "led2:A", "r1:1", "green", [ "v0" ] ],
+    [ "led2:C", "esp:GND.1", "green", [ "v0", "h-38", "v-38.4" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v0", "h-18.8", "v28.8" ] ],
+    [ "esp:0", "btn1:1.r", "green", [ "h33.64", "v9.6" ] ],
+    [ "btn1:1.l", "esp:GND.3", "green", [ "h48", "v-96" ] ]
+  ],
+  "dependencies": {}
+}
