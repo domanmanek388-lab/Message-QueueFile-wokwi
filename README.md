@@ -14,7 +14,7 @@ yang disimulasikan menggunakan Wokwi.
 - Arduino IDE
 - Wokwi Simulator
 
-## Demo
+## Demonstrasi
 https://wokwi.com/projects/449101373274438657
 
 
